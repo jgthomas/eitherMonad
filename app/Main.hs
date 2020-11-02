@@ -8,7 +8,7 @@ isEven n
   | otherwise = fail $ show n ++ " is not even!"
 
 allEven :: Int -> Int -> EitherM Int
-allEven n m = isEven n >>= (\n -> isEven m >>= (\m -> return m))
+allEven n m = isEven n >>= (\n -> isEven m >>= (\m -> return $ n + m))
 
 allEvenDo :: Int -> Int -> EitherM Int
 allEvenDo n m = do
@@ -17,7 +17,7 @@ allEvenDo n m = do
   return $ nResult + mResult
 
 first :: Int
-first = 2
+first = 8
 
 second :: Int
 second = 6
