@@ -19,10 +19,12 @@ isLessThanTen n
 -- a == n; m b = return (n + m) = EitherM (Right b)
 --
 -- power of the monad
--- 1) Sequences the operations, making sure isEven is checked before isLessThan
---    (but this could be done with an Applicative, no need for Monad power here!)
+-- 1) Sequences the operations, making sure isEven is checked before isLessThan.
+--    But this could be done with an Applicative, by putting all the functions in a
+--    context and applying them sequentially. No need for Monad power here!
 -- 2) Defines what happens if one of the checks fails, as part of the definition
---    of >>=. This is the true power of the monad.
+--    of >>=. This is the true power of the monad, and what it adds beyond an
+--    Applicative.
 numberPasses :: Int -> EitherM Int
 numberPasses n = isEven n >>= (\n -> isLessThanTen n >>= (\n -> return n))
 
