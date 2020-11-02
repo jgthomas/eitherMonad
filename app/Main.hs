@@ -34,9 +34,6 @@ numberPassesDo n = do
   sizeResult <- isLessThanTen n
   return n
 
-number :: Int
-number = 18
-
 main :: IO ()
 main = do
   args <- getArgs
